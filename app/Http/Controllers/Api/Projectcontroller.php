@@ -9,10 +9,9 @@ use App\Models\Project;
 class Projectcontroller extends Controller
 {
     public function index(){
-        $projects = Project::all();
+        $results = Project::with('type','technologies')->get();
         return response()->json([
-            'success'=> true,
-            'results'=>$projects
+            'results'=>$results
         ]);
     }
 }
