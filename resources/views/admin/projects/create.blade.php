@@ -7,7 +7,7 @@
         </div>
       
     
-    <form action="{{ route('admin.projects.store') }}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
             <div class="mb-3">
@@ -25,10 +25,9 @@
                     placeholder="inserisci link progetto">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label"><h3>Image</h3></label>
-                <input type="text" name="image" class="form-control" id="image" value="{{ old('image')}}"
-                    placeholder="inserisci nome file">
-            </div>
+                <label for="image" class="form-label">Carica un immagine</label>
+                <input class="form-control" name="image" type="file" id="image">
+              </div>
             <div class="mb-3">
                 <label for="type_id" class="form-label"><h3>Tipo:</h3></label>
                 <select class="form-control" name="type_id" id="type_id">

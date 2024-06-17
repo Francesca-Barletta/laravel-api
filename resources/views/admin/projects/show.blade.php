@@ -25,7 +25,7 @@
       
             <div class="proj-img">
                 @if($project->image)
-                <img src="{{ Vite::asset("resources/img/$project->image") }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('storage/' . $project->image) }}" class="d-block w-100" alt="image{{ $project->title }}">
                 @else
                 <p>Non ci sono immagini del progetto</p>
                 @endif

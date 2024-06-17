@@ -19,6 +19,8 @@ class Project extends Model
         'type_id'
     ];
 
+    // protected function imageFullpath()
+
     public function type()
     {
         return $this->belongsTo(Type::class);

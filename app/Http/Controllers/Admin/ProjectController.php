@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -53,7 +54,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-
+        // dd($request->all());
         // $request->validate([
         //     'progetto' => 'required|string',
         //     'descrizione' => 'required|max:2000',
@@ -74,6 +75,11 @@ class ProjectController extends Controller
             }
         }while ($find !== null);
         $form_data['slug'] = $slug;
+
+        if($request->hasFile('image')) {
+            $image_path = Storage::disk('public')->put('project_images', $request->image);
+            $form_data['image'] = $image_path;
+        }
 
         $new_project = Project::create($form_data);
         
