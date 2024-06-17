@@ -128,6 +128,13 @@ class ProjectController extends Controller
         //     'link' =>'required|string'
         // ]);
         $form_data = $request->validated();
+        if($request->hasFile('image')) {
+            $image_path = Storage::disk('public')->put('project_images', $request->image);
+            if($project->image) {
+                Storage::disk('public')->delete($project->image);
+            }
+            $form_data['image'] = $image_path;
+        }
         $project->update($form_data);
 
         if($request->has('technologies')){

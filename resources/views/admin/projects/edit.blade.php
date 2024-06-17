@@ -7,7 +7,7 @@
         </div>
 
 
-        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="container">
@@ -21,10 +21,9 @@
                     <textarea class="form-control" name="descrizione" id="descrizione" rows="3" placeholder="Inserisci descrizione">{{ old('descrizione', $project->descrizione) }}</textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label"><h3>Immagine</h3></label>
-                    <input type="text" name="image" class="form-control" id="image"
-                        value="{{ old('image', $project->image) }}" placeholder="inserisci nome file immagine">
-                </div>
+                    <label for="image" class="form-label">Carica un immagine</label>
+                    <input class="form-control" name="image" type="file" id="image">
+                  </div>
                 <div class="mb-3">
                     <label for="image" class="form-label"><h3>Link alla repo Git-hub</h3></label>
                     <input type="text" name="link" class="form-control" id="link"
