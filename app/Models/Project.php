@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,7 +20,15 @@ class Project extends Model
         'type_id'
     ];
 
-    // protected function imageFullpath()
+    protected $appends = ['image'];
+
+    protected function imageFullpath(): Attribute
+    {
+        return new Attribute(
+            get: fn () =>
+            $this->image ? asset('storage/' . $this->image) : null,
+        );
+    }
 
     public function type()
     {
