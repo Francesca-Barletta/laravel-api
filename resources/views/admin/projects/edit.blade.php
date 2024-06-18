@@ -22,7 +22,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Carica un immagine</label>
-                    <input class="form-control" name="image" type="file" id="image">
+                    <input class="form-control" name="image" type="file"  id="image">
                   </div>
                 <div class="mb-3">
                     <label for="image" class="form-label"><h3>Link alla repo Git-hub</h3></label>

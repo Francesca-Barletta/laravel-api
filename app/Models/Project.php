@@ -26,7 +26,7 @@ class Project extends Model
     {
         return new Attribute(
             get: fn () =>
-            $this->image ? asset('storage/' . $this->image) : null,
+            $this->image ? asset('http://127.0.0.1:8000/storage/' . $this->image) : null,
         );
     }
 
