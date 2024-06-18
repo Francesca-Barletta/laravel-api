@@ -20,7 +20,7 @@ class Project extends Model
         'type_id'
     ];
 
-    protected $appends = ['image'];
+    protected $appends = ['image_fullpath'];
 
     protected function imageFullpath(): Attribute
     {
