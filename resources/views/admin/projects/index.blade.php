@@ -24,7 +24,7 @@
                             {{-- <img src="..." class="card-img-top" alt="..."> --}}
                             <div class="image-cap">
                                 @if($project->image)
-                                <img src="{{ asset('storage/' . $project->image) }}" class="d-block w-100" alt="image{{ $project->progetto }}">
+                                <img src="{{ asset('storage/'. $project->image) }}" class="d-block w-100" alt="{{ $project->progetto }}">
                                 @else
                                 <div class="proj-title">
                                     <h3>{{ $project->progetto }}</h3>

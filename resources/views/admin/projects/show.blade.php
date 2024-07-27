@@ -25,7 +25,7 @@
       
             <div class="proj-img">
                 @if($project->image)
-                <img src="{{ asset('storage/' . $project->image) }}" class="d-block w-100" alt="image{{ $project->progetto }}">
+                <img src="{{ asset('storage/'. $project->image) }}" class="d-block w-100" alt="{{ $project->progetto }}">
                 @else
                 <p>Non ci sono immagini del progetto</p>
                 @endif

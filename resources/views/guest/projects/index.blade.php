@@ -23,7 +23,7 @@
               
                 <div class="image-cap">
                   @if($project->image)
-                  <img src="{{ Vite::asset("resources/img/$project->image") }}" alt="" class="card-image">
+                  <img src="{{ asset('storage/'. $project->image) }}" class="d-block w-100" alt="{{ $project->progetto }}">
                   @else
                   <div class="proj-title">
                       <h3>{{ $project->progetto }}</h3>
